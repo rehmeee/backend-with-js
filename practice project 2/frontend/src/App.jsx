@@ -4,7 +4,8 @@ import axios from 'axios'
 function App() {
   const [jokes, setJokes] = useState([])
   useEffect(()=>{
-    axios.get("http://localhost:3000/jokes")
+    // proxy is use to show the backend server that the request is coming from a same origin
+    axios.get("/api/jokes")
     .then(response=>setJokes(response.data)  )
     .catch(error=>console.log(error))
   },[])
