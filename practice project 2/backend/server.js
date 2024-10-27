@@ -33,11 +33,12 @@ const jokes = [
   
   // Output to console
 
-  
+// this is the just little bit of middleware
+app.use(express.static('dist'))
 app.get('/', (req, res) => {
     res.send('Server is ready');
 })
-app.get('/jokes', (req, res) => {
+app.get('/api/jokes', (req, res) => {
     res.json(jokes);
 })
 app.listen(process.env.PORT, ()=>{
