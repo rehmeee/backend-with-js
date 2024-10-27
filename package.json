@@ -1,0 +1,11 @@
+{
+  "name": "practice-backend",
+  "version": "1.0.0",
+  "description": "\"this is just for practice the basic backend concepts\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Rehman ali",
+  "license": "ISC"
+}
