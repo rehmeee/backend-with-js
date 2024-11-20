@@ -8,11 +8,10 @@ export const authMiddleWare = asyncHandler(async (req, res, next) => {
   // decode it
   // get the user
   // and pass the user to the requect
-  console.log(req);
   const token =(req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "")).trim()
     
     
-  console.log(`this i s access token "${token}"`);
+  // console.log(`this i s access token "${token}"`);
   if (!token) {
     throw new Error("token not found");
   }
@@ -22,7 +21,7 @@ export const authMiddleWare = asyncHandler(async (req, res, next) => {
     throw new Error("token is incorrect");
     console.error("error while token verification")
   }
- const user = await User.findById(decodedToken._id)
+ const user = await User.findById(decodedToken._id).select("-password -refreshToken")
 
   req.user = user;
   next()
