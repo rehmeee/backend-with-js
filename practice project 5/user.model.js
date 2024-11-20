@@ -36,7 +36,7 @@ userSchema.pre("save", async function (next) {
   next();
 });
 userSchema.methods.checkPasswordisCorrect = async function (passowrd) {
-  await bcrypt.compare(passowrd, this.password);
+  return  await bcrypt.compare(passowrd, this.password);
 };
 userSchema.methods.genrateAcessTokens = function () {
   return jwt.sign(
@@ -46,7 +46,7 @@ userSchema.methods.genrateAcessTokens = function () {
       email: this.email,
     },
     "lajdofjoaieoa8er9798f",
-    { expiresIn: "7d" }
+    { expiresIn: "1d" }
   );
 };
 
@@ -55,8 +55,8 @@ userSchema.methods.genrateRefreshTokens = function () {
     {
       _id: this._id,
     },
-    "lajdofjoaieoa8er9798f",
-    { expiresIn: "" }
+    "lkdlasfljadkfo2349814091",
+    { expiresIn: "10d" }
   );
 };
 
